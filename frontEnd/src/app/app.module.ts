@@ -30,6 +30,7 @@ import { BienvenidaComponent } from './components/bienvenida/bienvenida.componen
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { UsuarioCSVComponent } from './components/usuario/usuario-csv.component';
 import { tokenInterceptorInterceptor } from './interceptors/token-interceptor.interceptor';
+import { OpcionesAvanzadasComponent } from './components/opciones-avanzadas/opciones-avanzadas.component';
 
 
 @NgModule({
@@ -50,7 +51,8 @@ import { tokenInterceptorInterceptor } from './interceptors/token-interceptor.in
     MantenimientoUsuariosComponent,
     BienvenidaComponent,
     DashboardComponent,
-    UsuarioCSVComponent
+    UsuarioCSVComponent,
+    OpcionesAvanzadasComponent
   ],
   imports: [
     FormsModule,

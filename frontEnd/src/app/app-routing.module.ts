@@ -17,6 +17,7 @@ import { BienvenidaComponent } from './components/bienvenida/bienvenida.componen
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { UsuarioCSVComponent } from './components/usuario/usuario-csv.component';
 import { authGuard } from './guards/auth.guard';
+import { OpcionesAvanzadasComponent } from './components/opciones-avanzadas/opciones-avanzadas.component';
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'login'},
@@ -24,20 +25,20 @@ const routes: Routes = [
   {path: 'personas/form', component: PersonaFormComponent,canActivate:[authGuard]},
   {path: 'personas/form/:id', component: PersonaFormComponent, canActivate:[authGuard]},
 
-  {path: 'roles', component: RoleComponent},
+  {path: 'roles', component: RoleComponent,canActivate:[authGuard] },
   {path: 'roles/form', component: RoleFormComponent, canActivate:[authGuard]},
   {path: 'roles/form/:id', component: RoleFormComponent, canActivate:[authGuard]},
 
-  {path: 'usuarios', component: UsuarioComponent},
+  {path: 'usuarios', component: UsuarioComponent, canActivate:[authGuard]},
   {path: 'usuarios/form', component: UsuarioFormComponent, canActivate:[authGuard]},
   {path: 'usuarios/form/:id', component: UsuarioFormComponent, canActivate:[authGuard]},
   {path: 'usuarios/csv', component: UsuarioCSVComponent, canActivate:[authGuard]},
 
-  {path: 'rol-opciones', component: RolOpcionesComponent},
+  {path: 'rol-opciones', component: RolOpcionesComponent, canActivate:[authGuard]},
   {path: 'rol-opciones/form', component: RolOpcionesFormComponent, canActivate:[authGuard]},
   {path: 'rol-opciones/form/:id', component: RolOpcionesFormComponent, canActivate:[authGuard]},
 
-  {path: 'sessions', component: SessionComponent},
+  {path: 'sessions', component: SessionComponent, canActivate:[authGuard]},
   {path: 'sessions/form', component: SessionFormComponent, canActivate:[authGuard]},
   {path: 'sessions/form/:id', component: SessionFormComponent, canActivate:[authGuard]},
 
@@ -47,6 +48,8 @@ const routes: Routes = [
   {path: 'mantenimiento-usuarios', component: MantenimientoUsuariosComponent, canActivate:[authGuard]},
   {path: 'bienvenida', component: BienvenidaComponent},
   {path: 'dashboard', component: DashboardComponent, canActivate:[authGuard]},
+  {path: 'opciones-avanzadas', component: OpcionesAvanzadasComponent, canActivate:[authGuard]},
+
 ];
 
 @NgModule({

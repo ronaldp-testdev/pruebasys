@@ -2,8 +2,17 @@
     <div class="card-header">{{titulo}}</div>
     <div class="card-body">
 
+
         <div class="form-group">
-            <label for="usuarios">Permite Crear, Visualizar, Editar, Desactivar o Reactivar Usuarios:</label>
+            <label for="personas">- Permite Administración Información Personal (Personas):</label>
+            <br/>
+            <button id="personas" name="personas"
+            class="btn btn-info my-2" routerLink="/personas">Administrar Información de Personas >>></button>
+            
+        </div>
+
+        <div class="form-group">
+            <label for="usuarios">- Permite Crear, Visualizar, Editar, Desactivar o Reactivar Usuarios:</label>
             <br/>
             <button id="usuarios" name="usuarios"
             class="btn btn-primary my-2" routerLink="/usuarios">Administrar Usuarios >>></button>
@@ -11,10 +20,18 @@
         </div>
 
         <div class="form-group">
-            <label for="csv">Permite la carga Masiva de Usuarios por medio de un archivo (CSV):</label>
+            <label for="csv">- Permite la carga Masiva de Usuarios por medio de un archivo (CSV):</label>
             <br/>
             <button id="csv" name="csv"
             class="btn btn-success my-2" routerLink="/usuarios/csv">Carga Masiva >>></button>
+            
+        </div>
+
+        <div class="form-group">
+            <label for="avanzada">- Permite administrar roles, opciones basadas en roles, sesiones:</label>
+            <br/>
+            <button id="avanzada" name="avanzada"
+            class="btn btn-danger my-2" routerLink="/opciones-avanzadas">Opciones Avanzadas >>></button>
             
         </div>
        
