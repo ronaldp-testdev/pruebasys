@@ -1,0 +1,21 @@
+<div class="card text-bg-light mb-3">
+    <div class="card-header">{{titulo}}</div>
+    <div class="card-body">
+        <button class="btn btn-secondary my-2" routerLink="/roles">Volver</button>
+        <form>
+            <div class="form-group">
+                <label for="name">Nombre de Rol:</label>
+                <input type="text" id="name" name="name" class="form-control" 
+                [(ngModel)]="model.name"/>
+                <div class="alert alert-danger" *ngIf="error?.name">
+                    {{error.name}}
+                </div>
+            </div>
+
+            <br/>
+            <div class="form-group">
+                <button type="button" class="btn btn-primary" (click)="model.id? editar() : crear()">{{model.id? 'Editar' : 'Crear Roles'}}</button>
+            </div>
+        </form>
+    </div>
+</div>

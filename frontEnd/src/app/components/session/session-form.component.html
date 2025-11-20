@@ -1,0 +1,32 @@
+<div class="card text-bg-light mb-3">
+    <div class="card-header">{{titulo}}</div>
+    <div class="card-body">
+        <button class="btn btn-secondary my-2" routerLink="/sessions">Volver</button>
+        <form>
+            <div class="form-group">
+                <mat-form-field>
+                    <mat-label for="fechaIngreso">Fecha de Ingreso:</mat-label>
+                    <input matInput [matDatepicker]="picker" disabled  [(ngModel)]="model.fechaIngreso" id="fechaIngreso" name="fechaIngreso"/>
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker disabled="false"></mat-datepicker>
+                  </mat-form-field>
+            </div>
+
+            <div class="form-group">
+                <mat-form-field>
+                    <mat-label for="fechaCierre">Fecha de Cierre:</mat-label>
+                    <input matInput [matDatepicker]="picker2" disabled  [(ngModel)]="model.fechaCierre" id="fechaCierre" name="fechaCierre"/>
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+                    <mat-datepicker #picker2 disabled="false"></mat-datepicker>
+                  </mat-form-field>
+            </div>
+
+            <br/>
+            <div class="form-group">
+                <button type="button" class="btn btn-primary" (click)="model.id? editar() : crear()">{{model.id? 'Editar' : 'Crear Session'}}</button>
+            </div>
+        </form>
+    </div>
+</div>

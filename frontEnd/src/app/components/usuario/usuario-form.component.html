@@ -1,0 +1,23 @@
+<div class="card text-bg-light mb-3">
+    <div class="card-header">{{titulo}}</div>
+    <div class="card-body">
+        <button class="btn btn-secondary my-2" routerLink="/usuarios">Volver</button>
+        <form>
+            <div class="form-group">
+
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" class="form-control" 
+                [(ngModel)]="model.username"/>
+                <div class="alert alert-danger" *ngIf="error?.username">
+                    {{error.username}}
+                </div>
+                
+            </div>
+            <br/>
+            
+            <div class="form-group">
+                <button type="button" class="btn btn-primary" (click)="model.id? editar() : crear()">{{model.id? 'Editar' : 'Crear Usuario'}}</button>
+            </div>
+        </form>
+    </div>
+</div>

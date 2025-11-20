@@ -1,0 +1,56 @@
+<div class="card text-bg-light mb-3">
+    <div class="card-header">{{titulo}}</div>
+    <div class="card-body">
+        <!--button class="btn btn-primary mx-2 my-2" routerLink="/commerces/csv">Carga Masiva (CSV)</button-->
+        <!--button class="btn btn-secondary mx-2 my-2" routerLink="/commerces/sanitizar">Sanitizar</button-->
+        <button class="btn btn-primary my-2" routerLink="/personas/form">Crear</button>
+        <div class="alert alert-info" *ngIf="lista.length==0">
+            No hay commerces en el sistema
+        </div>
+        <table class="table table-hover table-striped" *ngIf="lista.length>0">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombres</th>
+                    <th>Apellidos</th>
+                    <th>Identificación</th>
+                    <th>Fecha de Nacimiento</th>
+                    <th>Activado</th>
+                    <th>Editar</th>
+                    <th>Desactivar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let persona of lista">
+                    <td>{{persona.id }}</td>
+                    <td>{{persona.nombres }}</td>
+                    <td>{{persona.apellidos }}</td>
+                    <td>{{persona.identificacion }}</td>
+                    <td>{{persona.fechaNacimiento | date : 'yyyy/MM/dd' }}</td>
+                    <td>{{persona.activated}}</td>
+                    <td>
+                        <button class="btn btn-secondary btn-sm" [routerLink]="['/personas/form', persona.id]">Editar</button>
+                        
+                    </td>
+                    <td>
+                        <button 
+                        class="btn btn-sm" 
+                        [class.btn-danger]="persona.activated"
+                        [class.btn-success]="!persona.activated"
+                        (click)="eliminar(persona)">{{persona.activated ? 'Desactivar Persona' : 'Activar Opción'}}</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <mat-paginator [length]="totalRegistros"
+              [pageSize]="totalPorPagina"
+              [pageIndex]="paginaActual"
+              [pageSizeOptions]="pageSizeOptions"
+              (page)="paginar($event)"
+              aria-label="Select Page"
+              showFirstLastButtons
+              class="float-left mx-2"
+              >
+        </mat-paginator>
+    </div>
+  </div>

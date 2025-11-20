@@ -1,0 +1,47 @@
+<div class="card text-bg-light mb-3">
+    <div class="card-header">{{titulo}}</div>
+    <div class="card-body">
+        <button class="btn btn-secondary my-2" routerLink="/personas">Volver</button>
+        <form>
+            <div class="form-group">
+                <label for="nombres">Nombres:</label>
+                <input type="text" id="nombres" name="nombres" class="form-control" 
+                [(ngModel)]="model.nombres"/>
+                <div class="alert alert-danger" *ngIf="error?.nombres">
+                    {{error.nombres}}
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="apellidos">Apellidos:</label>
+                <input type="text" id="apellidos" name="apellidos" class="form-control" 
+                [(ngModel)]="model.apellidos"/>
+                <div class="alert alert-danger" *ngIf="error?.apellidos">
+                    {{error.apellidos}}
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="identificacion">Identificacion:</label>
+                <input type="text" id="identificacion" name="identificacion" class="form-control" 
+                [(ngModel)]="model.identificacion"/>
+                <div class="alert alert-danger" *ngIf="error?.identificacion">
+                    {{error.identificacion}}
+                </div>
+            </div>
+            <div class="form-group">
+                <mat-form-field>
+                    <mat-label for="fechaNacimiento">Fecha de Nacimiento:</mat-label>
+                    <input matInput [matDatepicker]="picker" disabled  [(ngModel)]="model.fechaNacimiento" id="fechaNacimiento" name="fechaNacimiento"/>
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker disabled="false"></mat-datepicker>
+                  </mat-form-field>
+            </div>
+            <br/>
+            <div class="form-group">
+                <button type="button" class="btn btn-primary" (click)="model.id? editar() : crear()">{{model.id? 'Editar' : 'Crear Persona'}}</button>
+            </div>
+        </form>
+    </div>
+</div>

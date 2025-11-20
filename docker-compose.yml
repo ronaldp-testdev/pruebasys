@@ -1,0 +1,13 @@
+services:
+  database:
+    container_name: loginSysDB
+    image: postgres:15-alpine
+    volumes:
+      - ./scripts:/docker-entrypoint-initdb.d
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: sasa123
+      POSTGRES_DB: login_sys
+    

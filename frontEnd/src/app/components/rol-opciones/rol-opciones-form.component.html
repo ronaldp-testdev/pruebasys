@@ -1,0 +1,21 @@
+<div class="card text-bg-light mb-3">
+    <div class="card-header">{{titulo}}</div>
+    <div class="card-body">
+        <button class="btn btn-secondary my-2" routerLink="/roles">Volver</button>
+        <form>
+            <div class="form-group">
+                <label for="nombreOpcion">Opción:</label>
+                <input type="text" id="nombreOpcion" name="nombreOpcion" class="form-control" 
+                [(ngModel)]="model.nombreOpcion"/>
+                <div class="alert alert-danger" *ngIf="error?.nombreOpcion">
+                    {{error.nombreOpcion}}
+                </div>
+            </div>
+
+    
+            <div class="form-group">
+                <button type="button" class="btn btn-primary" (click)="model.id? editar() : crear()">{{model.id? 'Editar' : 'Crear Opción'}}</button>
+            </div>
+        </form>
+    </div>
+</div>

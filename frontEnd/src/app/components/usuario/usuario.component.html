@@ -1,0 +1,48 @@
+<div class="card text-bg-light mb-3">
+    <div class="card-header">{{titulo}}</div>
+    <div class="card-body">
+        <!--button class="btn btn-primary mx-2 my-2" routerLink="/commerces/csv">Carga Masiva (CSV)</button-->
+        <!--button class="btn btn-secondary mx-2 my-2" routerLink="/commerces/sanitizar">Sanitizar</button-->
+        <button class="btn btn-primary my-2" routerLink="/usuarios/form">Crear</button>
+        <div class="alert alert-info" *ngIf="lista.length==0">
+            No hay usuarios en el sistema
+        </div>
+        <table class="table table-hover table-striped" *ngIf="lista.length>0">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    
+                    <th>Username</th>
+                    <th>Sesión Activa</th>
+                    <th>Editar</th>
+                    <th>Desactivar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of lista">
+                    <td>{{user.id }}</td>
+                    
+                    <td>{{user.username}}</td>
+                    <td>{{user.sessionActive}}</td>
+                    <td>
+                        <button class="btn btn-secondary btn-sm" [routerLink]="['/usuarios/form', user.id]">Editar</button>
+                        
+                    </td>
+                    <td>
+                        <button class="btn btn-danger btn-sm" (click)="eliminar(user)">Desactivar Usuario</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <mat-paginator [length]="totalRegistros"
+              [pageSize]="totalPorPagina"
+              [pageIndex]="paginaActual"
+              [pageSizeOptions]="pageSizeOptions"
+              (page)="paginar($event)"
+              aria-label="Select Page"
+              showFirstLastButtons
+              class="float-left mx-2"
+              >
+        </mat-paginator>
+    </div>
+  </div>
