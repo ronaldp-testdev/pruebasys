@@ -26,3 +26,15 @@ Postgres 15 (Dockerizada)
 
  - Iniciar el frontEnd (Angular) desde la ruta /frontEnd con el comand:
 ``` ng serve ```
+
+
+### Credencial por defecto
+---------------------------
+admin
+12345
+
+### Roles por defecto
+---------------------------
+- El sistema crea por defecto ROLE_ADMIN Y ROLE_USER
+- Todos los usuarios nuevos por defecto son ROLE_USER
+

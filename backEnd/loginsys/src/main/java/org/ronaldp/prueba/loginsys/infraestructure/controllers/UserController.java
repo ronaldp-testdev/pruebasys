@@ -8,6 +8,7 @@ import org.ronaldp.prueba.loginsys.domain.mappers.IUserMapper;
 
 import org.ronaldp.prueba.loginsys.domain.models.dtos.UserDto;
 import org.ronaldp.prueba.loginsys.domain.models.dtos.UserRequest;
+import org.ronaldp.prueba.loginsys.domain.models.entities.Session;
 import org.ronaldp.prueba.loginsys.domain.models.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -34,6 +35,18 @@ public class UserController extends CommonController<User, IUserService,
             return ResponseEntity.ok(userOptional.orElseThrow());
         }
         return ResponseEntity.notFound().build();
+    }
+
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> eliminar(@PathVariable Long id){
+        Optional<User> o = service.findById(id);
+        if(o.isEmpty()){
+            return ResponseEntity.notFound().build();
+        }
+        User userDb = o.get();
+        userDb.setActivated(!userDb.isActivated());
+        return ResponseEntity.status(HttpStatus.OK).body(mapper.todto(service.save(userDb)));
     }
 
     private ResponseEntity<?> validation(BindingResult result) {

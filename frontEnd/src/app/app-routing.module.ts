@@ -16,36 +16,37 @@ import { MantenimientoUsuariosComponent } from './components/mantenimiento-usuar
 import { BienvenidaComponent } from './components/bienvenida/bienvenida.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { UsuarioCSVComponent } from './components/usuario/usuario-csv.component';
+import { authGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'login'},
-  {path: 'personas', component: PersonaComponent},
-  {path: 'personas/form', component: PersonaFormComponent},
-  {path: 'personas/form/:id', component: PersonaFormComponent},
+  {path: 'personas', component: PersonaComponent, canActivate:[authGuard]},
+  {path: 'personas/form', component: PersonaFormComponent,canActivate:[authGuard]},
+  {path: 'personas/form/:id', component: PersonaFormComponent, canActivate:[authGuard]},
 
   {path: 'roles', component: RoleComponent},
-  {path: 'roles/form', component: RoleFormComponent},
-  {path: 'roles/form/:id', component: RoleFormComponent},
+  {path: 'roles/form', component: RoleFormComponent, canActivate:[authGuard]},
+  {path: 'roles/form/:id', component: RoleFormComponent, canActivate:[authGuard]},
 
   {path: 'usuarios', component: UsuarioComponent},
-  {path: 'usuarios/form', component: UsuarioFormComponent},
-  {path: 'usuarios/form/:id', component: UsuarioFormComponent},
-  {path: 'usuarios/csv', component: UsuarioCSVComponent},
+  {path: 'usuarios/form', component: UsuarioFormComponent, canActivate:[authGuard]},
+  {path: 'usuarios/form/:id', component: UsuarioFormComponent, canActivate:[authGuard]},
+  {path: 'usuarios/csv', component: UsuarioCSVComponent, canActivate:[authGuard]},
 
   {path: 'rol-opciones', component: RolOpcionesComponent},
-  {path: 'rol-opciones/form', component: RolOpcionesFormComponent},
-  {path: 'rol-opciones/form/:id', component: RolOpcionesFormComponent},
+  {path: 'rol-opciones/form', component: RolOpcionesFormComponent, canActivate:[authGuard]},
+  {path: 'rol-opciones/form/:id', component: RolOpcionesFormComponent, canActivate:[authGuard]},
 
   {path: 'sessions', component: SessionComponent},
-  {path: 'sessions/form', component: SessionFormComponent},
-  {path: 'sessions/form/:id', component: SessionFormComponent},
+  {path: 'sessions/form', component: SessionFormComponent, canActivate:[authGuard]},
+  {path: 'sessions/form/:id', component: SessionFormComponent, canActivate:[authGuard]},
 
   {path: 'login', component: LoginComponent},
   {path: 'forbidden', component: Forbidden403Component},
 
-  {path: 'mantenimiento-usuarios', component: MantenimientoUsuariosComponent},
+  {path: 'mantenimiento-usuarios', component: MantenimientoUsuariosComponent, canActivate:[authGuard]},
   {path: 'bienvenida', component: BienvenidaComponent},
-  {path: 'dashboard', component: DashboardComponent},
+  {path: 'dashboard', component: DashboardComponent, canActivate:[authGuard]},
 ];
 
 @NgModule({

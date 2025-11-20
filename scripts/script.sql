@@ -44,6 +44,7 @@ CREATE TABLE usuarios (
 	"password" varchar(255) NULL,
 	session_active bool NULL,
 	status varchar(255) NULL,
+	activated bool NOT NULL,
 	username varchar(255) NULL,
 	persona_id int8 NULL,
 	CONSTRAINT ukl5dltx5is9uxuo22lofxowqhs UNIQUE (persona_id),
@@ -84,8 +85,8 @@ VALUES(true, 'admin', '2000-10-10 00:00:00.000', '9999999999', 'admin');
 
 
 INSERT INTO usuarios
-(email, "password", session_active, status, username, persona_id)
-VALUES('xyz@mail.com', '$2a$10$5KQQcWpNA033OrT/bb6IRePw7a6ldGewERhqiPrQK8MBEFPEB7f9a', true, NULL, 'admin', 1);
+(activated, email, "password", session_active, status, username, persona_id)
+VALUES(true, 'xyz@mail.com', '$2a$10$5KQQcWpNA033OrT/bb6IRePw7a6ldGewERhqiPrQK8MBEFPEB7f9a', false, NULL, 'admin', 1);
 
 
 INSERT INTO users_roles

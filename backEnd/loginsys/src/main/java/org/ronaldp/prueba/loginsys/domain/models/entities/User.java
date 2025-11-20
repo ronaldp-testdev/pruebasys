@@ -52,8 +52,11 @@ public class User implements IUser {
     )
     private List<Role> roles;
 
+    private boolean activated;
+
     public User() {
-        this.sessionActive = true;
+        this.activated = true;
+        this.sessionActive = false;
         this.roles = new ArrayList<>();
     }
 }

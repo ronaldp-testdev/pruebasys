@@ -9,7 +9,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatInputModule} from '@angular/material/input';
 import { PersonaComponent } from './components/persona/persona.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, provideHttpClient, withInterceptors } from '@angular/common/http';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { PersonaFormComponent } from './components/persona/persona-form.component';
 import { FormsModule } from '@angular/forms';
@@ -29,6 +29,7 @@ import { MantenimientoUsuariosComponent } from './components/mantenimiento-usuar
 import { BienvenidaComponent } from './components/bienvenida/bienvenida.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { UsuarioCSVComponent } from './components/usuario/usuario-csv.component';
+import { tokenInterceptorInterceptor } from './interceptors/token-interceptor.interceptor';
 
 
 @NgModule({
@@ -64,7 +65,8 @@ import { UsuarioCSVComponent } from './components/usuario/usuario-csv.component'
   providers: [
     DatePipe,
     provideAnimationsAsync(),
-    provideNativeDateAdapter()
+    provideNativeDateAdapter(),
+    provideHttpClient(withInterceptors([tokenInterceptorInterceptor])),
   ],
   bootstrap: [AppComponent]
 })

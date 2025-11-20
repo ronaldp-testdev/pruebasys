@@ -25,8 +25,11 @@ public class UserDto {
 
     private List<RoleDto> roles;
 
+    private boolean activated;
+
     public UserDto() {
-        this.sessionActive = true;
+        this.activated = true;
+        this.sessionActive = false;
         this.roles = new ArrayList<>();
     }
 }

@@ -45,37 +45,37 @@ public class SpringSecurityConfig {
                         authz
                                 .requestMatchers(HttpMethod.GET,"/api/personas", "/api/personas/pagina").permitAll()
                                 .requestMatchers(HttpMethod.GET, "/api/personas/{id}").permitAll()
-                                .requestMatchers(HttpMethod.POST,"/api/personas").permitAll()
-                                .requestMatchers(HttpMethod.POST,"/api/personas/csv").permitAll()
-                                .requestMatchers(HttpMethod.PUT, "/api/personas/{id}").permitAll()
-                                .requestMatchers(HttpMethod.DELETE, "/api/personas/{id}").permitAll()
+                                .requestMatchers(HttpMethod.POST,"/api/personas").hasRole("ADMIN")
+                                .requestMatchers(HttpMethod.POST,"/api/personas/csv").hasRole("ADMIN")
+                                .requestMatchers(HttpMethod.PUT, "/api/personas/{id}").hasRole("ADMIN")
+                                .requestMatchers(HttpMethod.DELETE, "/api/personas/{id}").hasRole("ADMIN")
 
                                 .requestMatchers(HttpMethod.GET,"/api/usuarios", "/api/usuarios/pagina").permitAll()
                                 .requestMatchers(HttpMethod.GET, "/api/usuarios/{id}").permitAll()
-                                .requestMatchers(HttpMethod.POST,"/api/usuarios").permitAll()
-                                .requestMatchers(HttpMethod.PUT, "/api/usuarios/{id}").permitAll()
+                                .requestMatchers(HttpMethod.POST,"/api/usuarios").hasRole("ADMIN")
+                                .requestMatchers(HttpMethod.PUT, "/api/usuarios/{id}").hasRole("ADMIN")
 
 
                                 .requestMatchers(HttpMethod.GET,"/api/roles", "/api/roles/pagina").permitAll()
                                 .requestMatchers(HttpMethod.GET, "/api/roles/{id}").permitAll()
-                                .requestMatchers(HttpMethod.POST,"/api/roles").permitAll()
-                                .requestMatchers(HttpMethod.PUT, "/api/roles/{id}").permitAll()
-                                .requestMatchers(HttpMethod.DELETE, "/api/roles/{id}").permitAll()
+                                .requestMatchers(HttpMethod.POST,"/api/roles").hasRole("ADMIN")
+                                .requestMatchers(HttpMethod.PUT, "/api/roles/{id}").hasRole("ADMIN")
+                                .requestMatchers(HttpMethod.DELETE, "/api/roles/{id}").hasRole("ADMIN")
 
 
                                 .requestMatchers(HttpMethod.GET,"/api/rol-opciones", "/api/rol-opciones/pagina").permitAll()
                                 .requestMatchers(HttpMethod.GET, "/api/rol-opciones/{id}").permitAll()
-                                .requestMatchers(HttpMethod.POST,"/api/rol-opciones").permitAll()
-                                .requestMatchers(HttpMethod.PUT, "/api/rol-opciones/{id}").permitAll()
-                                .requestMatchers(HttpMethod.DELETE, "/api/rol-opciones/{id}").permitAll()
+                                .requestMatchers(HttpMethod.POST,"/api/rol-opciones").hasRole("ADMIN")
+                                .requestMatchers(HttpMethod.PUT, "/api/rol-opciones/{id}").hasRole("ADMIN")
+                                .requestMatchers(HttpMethod.DELETE, "/api/rol-opciones/{id}").hasRole("ADMIN")
 
                                 .requestMatchers(HttpMethod.GET,"/api/sessions", "/api/sessions/pagina").permitAll()
                                 .requestMatchers(HttpMethod.GET, "/api/sessions/{id}").permitAll()
                                 .requestMatchers(HttpMethod.GET, "/api/sessions/ultima/{userid}").permitAll()
 
-                                .requestMatchers(HttpMethod.POST,"/api/sessions").permitAll()
-                                .requestMatchers(HttpMethod.PUT, "/api/sessions/{id}").permitAll()
-                                .requestMatchers(HttpMethod.DELETE, "/api/sessions/{id}").permitAll()
+                                .requestMatchers(HttpMethod.POST,"/api/sessions").hasRole("ADMIN")
+                                .requestMatchers(HttpMethod.PUT, "/api/sessions/{id}").hasRole("ADMIN")
+                                .requestMatchers(HttpMethod.DELETE, "/api/sessions/{id}").hasRole("ADMIN")
 
 
 

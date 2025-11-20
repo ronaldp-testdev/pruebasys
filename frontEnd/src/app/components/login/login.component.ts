@@ -41,7 +41,7 @@ export class LoginComponent {
           this.authService.user = login;
           
           console.log(payload);
-          this.router.navigate(['/personas']);
+          this.router.navigate(['/mantenimiento-usuarios']);
         },
         error: error => {
           if(error.status == 401){
